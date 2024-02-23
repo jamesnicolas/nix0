@@ -20,6 +20,7 @@ in
       isNormalUser = true;
       initialPassword = "12345";
       shell = pkgs.zsh;
+      extraGroups = [ "wheel" ];
     };
   };
 }
