@@ -2,14 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./main-user.nix
-      inputs.home-manager.nixosModules.default
+      ./home-manager.nix
     ];
   
   main-user.enable = true;
@@ -71,26 +71,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nicolas9 = {
-    isNormalUser = true;
-    description = "James Nicolas";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
-    ];
-  };
-
-  home-manager = {
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "nicolas9" = import ./home.nix;
-    }
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -113,6 +93,7 @@
     waybar
     pipewire
     hyprpaper
+    firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -137,6 +118,8 @@
     # nvidiaPatches = true; 
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
+  environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
   
   programs.zsh.enable = true;
 
