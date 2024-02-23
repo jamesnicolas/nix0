@@ -9,7 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./main-user.nix
-      ./home-manager.nix
     ];
   
   main-user.enable = true;
