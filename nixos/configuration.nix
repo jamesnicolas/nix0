@@ -8,11 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./main-user.nix
     ];
   
-  main-user.enable = true;
-  main-user.userName = "nicolas9";
+  users.users.nicolas9 = {
+    group = "nicolas9";
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
+  users.groups.nicolas9 = {};
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
