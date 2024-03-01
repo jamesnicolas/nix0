@@ -17,14 +17,15 @@
   };
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ 
-    mpv 
-    davinci-resolve-studio
-    discord
-    gimp
-    go
-    zig
-    wl-clipboard
+  home.packages = [ 
+    pkgs.mpv 
+    pkgs.davinci-resolve-studio
+    pkgs.discord
+    pkgs.gimp
+    pkgs.go
+    pkgs.zig
+    pkgs.wl-clipboard
+    pkgs.obsidian
   ];
 
   # Enable home-manager and git
