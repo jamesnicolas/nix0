@@ -19,6 +19,12 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
     mpv 
+    davinci-resolve-studio
+    discord
+    gimp
+    go
+    zig
+    wl-clipboard
   ];
 
   # Enable home-manager and git
