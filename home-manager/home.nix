@@ -23,6 +23,7 @@
     pkgs.discord
     pkgs.gimp
     pkgs.go
+    pkgs.ripgrep
     pkgs.zig
     pkgs.wl-clipboard
     pkgs.obsidian
